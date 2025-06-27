@@ -5,6 +5,7 @@ from .serializers import FitnessClassSerializer,BookingCreateSerializer,BookingS
 from datetime import datetime
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
 # Create your views here.
 
 class FitnessClassViewSet(viewsets.ModelViewSet):
@@ -19,7 +20,7 @@ class FitnessClassViewSet(viewsets.ModelViewSet):
     http_method_names = ['get']
     
     
-class BookingView(APIView):
+class BookingCreateView(APIView):
     """
         This view handles the booking of fitness classes.
         It uses the BookingCreateSerializer to validate and save the booking data.
@@ -33,7 +34,7 @@ class BookingView(APIView):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({"message":"You class is booked!", "data": serializer.data}, status=201)
+            return Response({"message":"Your class is booked!", "data": serializer.data}, status=201)
         else:
             return Response({"message":"Booking Failed", "error": serializer.errors}, status=400)
         

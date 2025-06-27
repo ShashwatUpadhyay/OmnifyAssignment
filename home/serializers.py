@@ -4,6 +4,7 @@ from django.utils import timezone
 import pytz
 
 # Function to convert datetime to the specified timezone
+
 def convert_timezone(value, tz):
     if value and tz:
         local_tz = pytz.timezone(tz)
@@ -40,16 +41,6 @@ class FitnessClassSerializer(serializers.ModelSerializer):
         return data
     
 
-class BookingSerializer(serializers.ModelSerializer):
-    """
-        Serializer for the Booking model.
-        This serializer includes all fields from the Booking model.
-        It does not perform any additional validation or transformations.
-    """
-    class Meta:
-        model = Booking
-        fields = '__all__'
-
 class BookingCreateSerializer(serializers.ModelSerializer):
     """
         Serializer for creating a Booking instance.
@@ -66,3 +57,13 @@ class BookingCreateSerializer(serializers.ModelSerializer):
         if class_instance.slots <= class_instance.bookings.count():
             raise serializers.ValidationError("No slots available for this class.") 
         return attrs
+
+class BookingSerializer(serializers.ModelSerializer):
+    """
+        Serializer for the Booking model.
+        This serializer includes all fields from the Booking model.
+        It does not perform any additional validation or transformations.
+    """
+    class Meta:
+        model = Booking
+        fields = '__all__'

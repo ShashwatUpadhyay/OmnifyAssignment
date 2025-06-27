@@ -19,7 +19,7 @@ class Booking(models.Model):
     booking_date = models.DateTimeField(auto_now_add=True)
     
     class Meta:
-        unique_together = ('client_name', 'class_instance')
+        unique_together = ('client_email', 'class_instance')
     
     def __str__(self):
         return f"{self.client_name} - {self.class_instance.class_name}"
