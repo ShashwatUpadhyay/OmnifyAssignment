@@ -45,12 +45,12 @@
 
 # Features
 
-### Built with Django & Django REST Framework
+### - Built with Django & Django REST Framework
 
-### Timezone-aware datetime handling
+### - Timezone-aware datetime handling
 
-### Input validation & error responses
+### - Input validation & error responses
 
-### SQLite used for local storage (no external DB required)
+### - SQLite used for local storage (no external DB required)
 
-### Modular, clean code structure
+### - Modular, clean code structure
